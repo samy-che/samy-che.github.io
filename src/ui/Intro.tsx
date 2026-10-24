@@ -45,7 +45,7 @@ export function Intro({ ready, onStart }: { ready: boolean; onStart: () => void 
             tr(ui.controlsTouch)
           ) : (
             <>
-              <kbd>{lang === 'fr' ? 'ZQSD' : 'WASD'}</kbd> / <kbd>↑←↓→</kbd> {tr(ui.controlsMove)} · <kbd>{lang === 'fr' ? 'Maj' : 'Shift'}</kbd>{' '}
+              <kbd>{lang === 'fr' ? 'ZQSD' : 'WASD'}</kbd> / <kbd>↑←↓→</kbd> {tr(ui.controlsMove)} · <kbd>{lang === 'fr' ? 'Maj' : 'Shift'}</kbd> / <kbd>{lang === 'fr' ? 'Espace' : 'Space'}</kbd>{' '}
               {tr(ui.controlsRun)} · <kbd>E</kbd> {tr(ui.controlsInteract)}
             </>
           )}

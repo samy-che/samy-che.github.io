@@ -12,7 +12,7 @@ import { ARCADE, BAG, CHESS_PIECES, PLACES, SPAWN, chessPiecePosition, groundHei
 import { bag, chessWobble, player } from './shared'
 
 const WALK = 6.5
-const RUN = 10.5
+const RUN = 14
 const RADIUS = 0.55
 const CAMERA_OFFSET = new Vector3(0, 15, 20)
 /** Vue plongeante utilisée quand un bâtiment masque le personnage. */
@@ -59,6 +59,7 @@ export function Player() {
   const occlusion = useRef(0)
   const startedAt = useRef<number | null>(null)
   const steps = useRef({ dist: 0, alt: false })
+  const sprint = useRef(false)
   const route = useRef<{ id: StationId; pts: { x: number; z: number }[]; stuck: number } | null>(null)
   const camera = useThree((s) => s.camera) as PerspectiveCamera
   const size = useThree((s) => s.size)
@@ -77,8 +78,11 @@ export function Player() {
 
     const portrait = size.width < size.height
     const fov = portrait ? 52 : 40
-    if (camera.fov !== fov) {
-      camera.fov = fov
+    // En course, le champ de vision s'élargit un peu pour donner une sensation de vitesse
+    const sprinting = s.started && sprint.current
+    const targetFov = fov + (sprinting ? 7 : 0)
+    if (Math.abs(camera.fov - targetFov) > 0.01) {
+      camera.fov += (targetFov - camera.fov) * (1 - Math.exp(-dt * 6))
       camera.updateProjectionMatrix()
     }
 
@@ -141,6 +145,7 @@ export function Player() {
 
     // ---- Vitesse et collisions
     const speed = running ? RUN : WALK
+    sprint.current = running && manual
     const k = 1 - Math.exp(-dt * 12)
     v.x += (ix * speed - v.x) * k
     v.z += (iz * speed - v.z) * k

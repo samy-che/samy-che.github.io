@@ -24,6 +24,7 @@ const bindings: Record<string, 'up' | 'down' | 'left' | 'right' | 'run'> = {
   ArrowRight: 'right',
   ShiftLeft: 'run',
   ShiftRight: 'run',
+  Space: 'run',
 }
 
 export const isMovementKey = (code: string) => code in bindings && bindings[code] !== 'run'
@@ -32,8 +33,10 @@ export function bindKeyboard() {
   const onDown = (e: KeyboardEvent) => {
     const action = bindings[e.code]
     if (!action) return
+    // Espace garde son rôle normal sur un bouton ou un lien (l'activer) ; ailleurs il sert à courir
+    if (e.code === 'Space' && e.target instanceof Element && e.target.closest('button, a, input, textarea')) return
     input[action] = true
-    if (e.code.startsWith('Arrow')) e.preventDefault()
+    if (e.code.startsWith('Arrow') || e.code === 'Space') e.preventDefault()
   }
   const onUp = (e: KeyboardEvent) => {
     const action = bindings[e.code]

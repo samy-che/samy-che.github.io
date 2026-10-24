@@ -1,12 +1,12 @@
 import type { L, Station, StationId } from './types'
 
-/** L'ordre du parcours : c'est aussi l'ordre chronologique de la route. */
+/** L'ordre du parcours le long de la route : d'abord les formations, puis les expériences. */
 export const stationOrder: StationId[] = [
   'start',
   'amiens',
   'evry',
-  'ministere',
   'dauphine',
+  'ministere',
   'fastcube',
   'lab',
   'kpmg',
@@ -30,7 +30,7 @@ export const stations: Record<StationId, Station> = {
       {
         title: { fr: 'Comment jouer', en: 'How to play' },
         items: [
-          { fr: 'Déplacez-vous avec ZQSD, WASD ou les flèches. Maj pour courir.', en: 'Move with WASD or the arrow keys. Hold Shift to run.' },
+          { fr: 'Déplacez-vous avec ZQSD, WASD ou les flèches. Maintenez Maj ou Espace pour courir.', en: 'Move with WASD or the arrow keys. Hold Shift or Space to run.' },
           { fr: 'Approchez-vous d’un bâtiment et appuyez sur E pour découvrir l’étape.', en: 'Walk up to a building and press E to open that chapter.' },
           { fr: 'Chaque étape débloque les compétences que j’y ai développées.', en: 'Each chapter unlocks the skills I built there.' },
           { fr: 'Trois secrets liés à mes centres d’intérêt sont cachés dans la ville.', en: 'Three secrets about my hobbies are hidden around town.' },
@@ -63,8 +63,8 @@ export const stations: Record<StationId, Station> = {
       {
         title: { fr: 'Résultat', en: 'Result' },
         items: [
-          { fr: 'Mention Assez Bien', en: 'Graded with honours (mention Assez Bien)' },
-          { fr: 'Classé 2e sur 37', en: 'Ranked 2nd out of 37' },
+          { fr: 'Mention Bien', en: 'Graded with honours (mention Bien)' },
+          { fr: 'Classé 2e sur 115', en: 'Ranked 2nd out of 115' },
         ],
       },
     ],
@@ -86,8 +86,8 @@ export const stations: Record<StationId, Station> = {
       {
         title: { fr: 'Résultats', en: 'Results' },
         items: [
-          { fr: 'L2 Informatique (2022 – 2023) : mention Bien, classé 4e sur 84', en: 'Year 2, Computer Science (2022 – 2023): honours (mention Bien), ranked 4th out of 84' },
-          { fr: 'L3 MIAGE (2023 – 2024) : mention Assez Bien, classé 2e sur 29', en: 'Year 3, MIAGE (2023 – 2024): honours (mention Assez Bien), ranked 2nd out of 29' },
+          { fr: 'L2 Informatique (2022 – 2023) : mention Très Bien, classé 2e sur 84', en: 'Year 2, Computer Science (2022 – 2023): high honours (mention Très Bien), ranked 2nd out of 84' },
+          { fr: 'L3 MIAGE (2023 – 2024) : mention Bien, classé 2e sur 29', en: 'Year 3, MIAGE (2023 – 2024): honours (mention Bien), ranked 2nd out of 29' },
         ],
       },
       {
@@ -165,6 +165,13 @@ export const stations: Record<StationId, Station> = {
       en: "Dauphine's MIAGE Master's deepens what interests me most: information systems, data and project management, always in service of business needs. My two Master's internships take place at Fastcube and then at KPMG.",
     },
     sections: [
+      {
+        title: { fr: 'Résultats', en: 'Results' },
+        items: [
+          { fr: 'M1 MIAGE : mention Bien', en: "Master's year 1 (M1 MIAGE): honours (mention Bien)" },
+          { fr: 'M2 MIAGE : mention Bien', en: "Master's year 2 (M2 MIAGE): honours (mention Bien)" },
+        ],
+      },
       {
         title: { fr: 'Quelques projets de ces deux années', en: 'A few projects from these two years' },
         items: [

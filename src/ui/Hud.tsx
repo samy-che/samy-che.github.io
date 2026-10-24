@@ -147,7 +147,7 @@ function ControlsHint() {
         <kbd>→</kbd> {tr(ui.controlsMove)}
       </span>
       <span>
-        <kbd>{lang === 'fr' ? 'Maj' : 'Shift'}</kbd> {tr(ui.controlsRun)}
+        <kbd>{lang === 'fr' ? 'Maj' : 'Shift'}</kbd> / <kbd>{lang === 'fr' ? 'Espace' : 'Space'}</kbd> {tr(ui.controlsRun)}
       </span>
       <span>
         <kbd>E</kbd> {tr(ui.controlsInteract)}

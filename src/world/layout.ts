@@ -69,8 +69,9 @@ export const PLACES: Record<StationId, StationPlace> = {
   start: { x: -62, z: -8, trigger: { x: -64, z: 0, r: 4.5 } },
   amiens: { x: -40, z: -11, trigger: { x: -40, z: -3.5, r: 4.5 } },
   evry: { x: -16, z: -11, trigger: { x: -16, z: -3.5, r: 4.5 } },
-  ministere: { x: 8, z: -11, trigger: { x: 8, z: -3.2, r: 4.5 } },
-  dauphine: { x: 32, z: -11, trigger: { x: 32, z: -3.2, r: 4.5 } },
+  // Formations d'abord (Amiens, Évry, Dauphine), puis les expériences à partir du Ministère
+  dauphine: { x: 8, z: -11, trigger: { x: 8, z: -3.2, r: 4.5 } },
+  ministere: { x: 32, z: -11, trigger: { x: 32, z: -3.2, r: 4.5 } },
   fastcube: { x: 40, z: -51, trigger: { x: 40, z: -43.5, r: 4.5 } },
   lab: { x: 16, z: -51, trigger: { x: 16, z: -43.5, r: 4.5 } },
   kpmg: { x: -8, z: -51, trigger: { x: -8, z: -43.5, r: 4.5 } },
@@ -79,7 +80,10 @@ export const PLACES: Record<StationId, StationPlace> = {
 }
 
 /** Bornes avec l'année, au bord sud de la route : la route sert de frise chronologique. */
-export const MILESTONES = (['amiens', 'evry', 'ministere', 'dauphine', 'fastcube', 'kpmg'] as const).map((id) => ({
+/** Poteau indicateur (Formation, Expériences, Belvédère) au bord de la route, au départ. */
+export const SIGNPOST = { x: PLACES.start.x + 6.5, z: PLACES.start.z + 12 }
+
+export const MILESTONES = (['amiens', 'evry', 'dauphine', 'ministere', 'fastcube', 'kpmg'] as const).map((id) => ({
   id,
   x: PLACES[id].trigger.x + 4.6,
   z: PLACES[id].trigger.z > -20 ? 3.6 : -36.4,
@@ -165,7 +169,7 @@ const P = PLACES
 export const STATIC_COLLIDERS: Collider[] = [
   // Départ : panneau d'accueil et poteau indicateur
   box(P.start.x, P.start.z, 4.2, 0.4),
-  circle(P.start.x + 6.5, P.start.z + 12, 0.3),
+  circle(SIGNPOST.x, SIGNPOST.z, 0.3),
   // Amiens : bâtiment + tour
   box(P.amiens.x, P.amiens.z, 5.5, 3.5),
   box(P.amiens.x + 7.4, P.amiens.z - 0.5, 1.5, 1.5),
@@ -295,6 +299,9 @@ const keepClear = [
   { x: HILL.x, z: HILL.z, r: 8 },
   { x: P.fastcube.x, z: P.fastcube.z, r: 10 },
   { x: P.lab.x - 9, z: P.lab.z + 1.5, r: 5 },
+  // Rien entre la caméra (au sud) et les petits panneaux : leur texte doit rester lisible
+  { x: SIGNPOST.x + 1, z: SIGNPOST.z + 3.5, r: 5 },
+  ...MILESTONES.map((m) => ({ x: m.x, z: m.z + 3, r: 3.5 })),
 ]
 
 export type TreeKind = 'round' | 'pine'

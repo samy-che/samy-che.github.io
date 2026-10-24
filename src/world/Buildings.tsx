@@ -6,7 +6,7 @@ import { stations } from '../content/stations'
 import { projects } from '../content/projects'
 import { useStore } from '../store'
 import { Box, C, Cyl, FONT_BOLD, Sign, Windows, mat, unitBox } from './parts'
-import { KIOSKS, MILESTONES, PLACES, PLAZA, groundHeight } from './layout'
+import { KIOSKS, MILESTONES, PLACES, PLAZA, SIGNPOST, groundHeight } from './layout'
 
 const useLang = () => useStore((s) => s.lang)
 
@@ -45,7 +45,7 @@ function Start() {
         {lang === 'fr' ? 'Suivez la route →' : 'Follow the road →'}
       </Text>
       {/* Poteau indicateur au bord de la route */}
-      <group position={[6.5, 0, 12]}>
+      <group position={[SIGNPOST.x - p.x, 0, SIGNPOST.z - p.z]}>
         <Box size={[0.25, 3, 0.25]} color={C.wood} />
         {[
           { y: 2.5, fr: 'Formation', en: 'Education', dir: 1 },
