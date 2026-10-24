@@ -23,7 +23,7 @@ Tous les textes sont dans `src/content/`, en français et en anglais :
 | `projects.ts` | les projets de la Place des projets |
 | `ui.ts` | les textes de l'interface |
 
-Le CV téléchargeable est `public/cv-samy-cherief.pdf`.
+Le bouton « Télécharger mon CV » pointe vers `public/cv-samy-cherief.pdf` : déposer le PDF sous ce nom pour qu'il fonctionne.
 
 ## Publier
 
