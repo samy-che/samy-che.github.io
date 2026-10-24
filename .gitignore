@@ -1,0 +1,6 @@
+node_modules
+dist
+.DS_Store
+.claude
+# CV d'origine collé dans le dossier : la version publiée est public/cv-samy-cherief.pdf
+Collé*.pdf
