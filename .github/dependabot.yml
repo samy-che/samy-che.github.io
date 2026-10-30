@@ -1,0 +1,11 @@
+# Tient à jour les actions GitHub figées par empreinte dans le workflow de déploiement.
+# Les failles des paquets npm sont gérées par les correctifs de sécurité automatiques de Dependabot.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ['*']

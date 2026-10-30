@@ -3,6 +3,11 @@ import { BoxGeometry, MeshStandardMaterial, type Euler } from 'three'
 import fredoka600 from '@fontsource/fredoka/files/fredoka-latin-600-normal.woff?url'
 import fredoka500 from '@fontsource/fredoka/files/fredoka-latin-500-normal.woff?url'
 
+/**
+ * Polices des textes 3D. Attention : si un texte 3D contient un caractère absent de Fredoka
+ * (par exemple « → »), troika télécharge une police de secours sur un CDN externe, ce que la
+ * politique de sécurité du site bloque. Pour une flèche, utiliser le composant <Arrow>.
+ */
 export const FONT_BOLD = fredoka600
 export const FONT_REGULAR = fredoka500
 
@@ -121,6 +126,18 @@ export function Cyl({
     <mesh position={[at[0], at[1] + h / 2, at[2]]} material={material ?? mat(color ?? C.cream)} castShadow={shadow} receiveShadow>
       <cylinderGeometry args={[rTop ?? r, r, h, seg]} />
     </mesh>
+  )
+}
+
+/** Petite flèche pointant vers +x, à la place du caractère « → » que Fredoka ne contient pas. */
+export function Arrow({ at, size = 0.4, color }: { at: V3; size?: number; color: string }) {
+  return (
+    <group position={at}>
+      <mesh geometry={unitBox} material={mat(color)} position={[-size * 0.2, 0, 0]} scale={[size * 0.7, size * 0.2, 0.04]} />
+      <mesh material={mat(color)} position={[size * 0.3, 0, 0]} rotation={[0, 0, -Math.PI / 2]}>
+        <cylinderGeometry args={[0, size * 0.32, size * 0.42, 3]} />
+      </mesh>
+    </group>
   )
 }
 

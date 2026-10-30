@@ -5,7 +5,7 @@ import { ExtrudeGeometry, Shape, type Group, type Mesh } from 'three'
 import { stations } from '../content/stations'
 import { projects } from '../content/projects'
 import { useStore } from '../store'
-import { Box, C, Cyl, FONT_BOLD, Sign, Windows, mat, unitBox } from './parts'
+import { Arrow, Box, C, Cyl, FONT_BOLD, Sign, Windows, mat, unitBox } from './parts'
 import { KIOSKS, MILESTONES, PLACES, PLAZA, SIGNPOST, groundHeight } from './layout'
 
 const useLang = () => useStore((s) => s.lang)
@@ -41,9 +41,10 @@ function Start() {
       <Text font={FONT_BOLD} fontSize={0.5} color={C.orangeSoft} position={[0, 2.85, 0.17]} anchorX="center" anchorY="middle">
         {lang === 'fr' ? 'Consultant SAP · KPMG France' : 'SAP Consultant · KPMG France'}
       </Text>
-      <Text font={FONT_BOLD} fontSize={0.4} color={C.cream} fillOpacity={0.85} position={[0, 2.1, 0.17]} anchorX="center" anchorY="middle">
-        {lang === 'fr' ? 'Suivez la route →' : 'Follow the road →'}
+      <Text font={FONT_BOLD} fontSize={0.4} color={C.cream} fillOpacity={0.85} position={[1.25, 2.1, 0.17]} anchorX="right" anchorY="middle">
+        {lang === 'fr' ? 'Suivez la route' : 'Follow the road'}
       </Text>
+      <Arrow at={[1.75, 2.1, 0.17]} size={0.42} color={C.cream} />
       {/* Poteau indicateur au bord de la route */}
       <group position={[SIGNPOST.x - p.x, 0, SIGNPOST.z - p.z]}>
         <Box size={[0.25, 3, 0.25]} color={C.wood} />
@@ -457,9 +458,11 @@ function Lab() {
         <Text font={FONT_BOLD} fontSize={0.42} color="#F7D25C" position={[-1.95, 2.02, 0.14]} anchorX="center" anchorY="middle">
           {lang === 'fr' ? '« règle »' : '“rule”'}
         </Text>
+        <Arrow at={[-0.6, 2.02, 0.14]} size={0.42} color="#58D6C9" />
         <Text font={FONT_BOLD} fontSize={0.42} color="#58D6C9" position={[0.2, 2.02, 0.14]} anchorX="center" anchorY="middle">
-          → VQL →
+          VQL
         </Text>
+        <Arrow at={[1.15, 2.02, 0.14]} size={0.42} color="#58D6C9" />
         <group position={[2.3, 2.02, 0.14]} rotation={[0, 0, 0]}>
           <mesh geometry={unitBox} material={goodMat} position={[-0.14, -0.08, 0]} rotation={[0, 0, Math.PI / 4]} scale={[0.32, 0.1, 0.04]} />
           <mesh geometry={unitBox} material={goodMat} position={[0.12, 0.04, 0]} rotation={[0, 0, -Math.PI / 3.2]} scale={[0.6, 0.1, 0.04]} />
