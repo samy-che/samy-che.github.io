@@ -4,7 +4,7 @@ import { skillsByStation } from '../content/skills'
 import { stationOrder, stations } from '../content/stations'
 import { ui } from '../content/ui'
 import { useStore } from '../store'
-import { CaseStudy, ContactButtons, LevelLegend, Outro, ProjectCards, Sections, SkillChip, useTr } from './common'
+import { CaseStudy, ContactButtons, Outro, ProjectCards, Sections, SkillChip, useTr } from './common'
 import { IconArrow, IconClose } from './icons'
 
 /** Panneau de l'étape : à droite sur ordinateur, en feuille glissante sur mobile. */
@@ -66,7 +66,6 @@ export function StationPanel() {
                 <SkillChip key={k.id} skill={k} />
               ))}
             </div>
-            <LevelLegend />
           </section>
         )}
         {s.kind === 'intro' && <ContactButtons />}

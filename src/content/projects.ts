@@ -2,41 +2,39 @@ import type { Project } from './types'
 
 const gh = (repo: string) => `https://github.com/samy-che/${repo}`
 
-/** Les projets exposés sur la Place des projets, du plus proche du positionnement SI / SAP au plus technique. */
+/** Les projets exposés sur la Place des projets (un kiosque par projet, dans cet ordre). */
 export const projects: Project[] = [
   {
-    id: 'wsdl-xsd-mapper',
-    name: 'WSDL / XSD Mapper',
-    tag: { fr: 'Outil · Facturation électronique', en: 'Tool · E-invoicing' },
+    id: 'puissance-4-ia',
+    name: 'Puissance 4 · IA',
+    tag: { fr: 'Projet · Intelligence artificielle', en: 'Project · Artificial intelligence' },
     description: {
-      fr: 'Application web 100 % locale pour comparer et mapper des schémas WSDL/XSD, pensée pour les travaux liés à la réforme de la facturation électronique (CII, UBL, Factur-X, Chorus Pro).',
-      en: 'A fully local web app to compare and map WSDL/XSD schemas, designed for work on the French e-invoicing reform (CII, UBL, Factur-X, Chorus Pro).',
+      fr: 'Agent capable de jouer au Puissance 4 dans un environnement partiellement observable : il ne voit pas toutes les pièces et doit raisonner sur l’ensemble des situations possibles.',
+      en: "An agent that plays Connect Four in a partially observable environment: it can't see every piece and has to reason over all the situations that might be true.",
     },
     points: [
-      { fr: 'Champs reliés côte à côte, façon SAP CPI', en: 'Fields linked side by side, SAP CPI style' },
-      { fr: 'Détection des écarts de type et de cardinalité', en: 'Flags type and cardinality mismatches' },
-      { fr: 'Validateur XML/XSD et exports CSV / JSON', en: 'XML/XSD validator, CSV / JSON exports' },
-      { fr: 'Aucune donnée envoyée : adapté aux schémas confidentiels', en: 'Nothing leaves the browser: safe for confidential schemas' },
+      { fr: 'Raisonnement sur des états de croyance : les situations possibles, pondérées par leur probabilité', en: 'Reasoning over belief states: the possible situations, weighted by probability' },
+      { fr: 'Mémorisation des états déjà explorés pour éviter les calculs redondants', en: 'Remembers states already explored to avoid redundant computation' },
+      { fr: 'Adversaire probabiliste guidé par une heuristique, et interface graphique', en: 'A heuristic-driven probabilistic opponent, plus a graphical interface' },
     ],
-    tech: ['JavaScript', 'XML / XSD', 'WSDL'],
-    repo: gh('wsdl-xsd-mapper'),
+    tech: ['Java'],
+    repo: gh('project_IA'),
   },
   {
-    id: 'controleur-xml-xsd',
-    name: 'Contrôleur XML / XSD',
-    tag: { fr: 'Outil · Facturation électronique', en: 'Tool · E-invoicing' },
+    id: 'covoiturage',
+    name: 'CovoitÉcole',
+    tag: { fr: 'Projet · Développement full stack', en: 'Project · Full-stack development' },
     description: {
-      fr: 'Site qui vérifie un lot de fichiers XML face à un schéma XSD de référence et génère les fichiers corrigés. Cas d’origine : des factures XML dont les balises ne respectaient pas l’ordre imposé par le XSD.',
-      en: "A site that checks a batch of XML files against a reference XSD and generates corrected files. Original use case: XML invoices whose tags didn't follow the order required by the XSD.",
+      fr: 'Plateforme web de covoiturage pour étudiants : recherche et proposition de trajets, réservations et profils.',
+      en: 'A carpooling web platform for students: finding and offering rides, bookings and profiles.',
     },
     points: [
-      { fr: 'Correction de l’ordre des balises, des espaces de noms et des valeurs du référentiel', en: 'Fixes tag order, namespaces and reference values' },
-      { fr: 'Génération de fichiers XML à partir d’un tableau Excel ou CSV', en: 'Generates XML files from an Excel or CSV table' },
-      { fr: 'Moteur lxml compilé en WebAssembly (Pyodide) : rien n’est téléversé', en: 'lxml compiled to WebAssembly (Pyodide): nothing is uploaded' },
+      { fr: 'Architecture en couches : entités JPA, DTO, repositories, services et contrôleurs REST', en: 'Layered architecture: JPA entities, DTOs, repositories, services and REST controllers' },
+      { fr: 'Authentification et autorisations avec Spring Security', en: 'Authentication and authorisation with Spring Security' },
+      { fr: 'Interface en Vaadin, base de données H2 / PostgreSQL', en: 'Vaadin interface, H2 / PostgreSQL database' },
     ],
-    tech: ['Python', 'Pyodide', 'WebAssembly', 'XSD'],
-    repo: gh('controleur-xml-xsd'),
-    demo: 'https://samy-che.github.io/controleur-xml-xsd/',
+    tech: ['Java', 'Spring Boot', 'Hibernate', 'Vaadin'],
+    repo: gh('Covoiturage-projet'),
   },
   {
     id: 'opti-match',

@@ -306,8 +306,8 @@ export const stations: Record<StationId, Station> = {
     role: { fr: 'Projets personnels et académiques', en: 'Personal and academic projects' },
     period: { fr: '2025 – 2026', en: '2025 – 2026' },
     intro: {
-      fr: 'Chaque kiosque présente un projet, avec le code sur GitHub. On y retrouve deux fils rouges de mon parcours : les données et les échanges entre systèmes d’information.',
-      en: 'Each stall presents a project, with the code on GitHub. Two threads of my path run through them: data, and the exchanges between information systems.',
+      fr: 'Chaque kiosque présente un projet personnel ou académique, avec le code sur GitHub : intelligence artificielle, données et développement d’applications.',
+      en: 'Each stall presents a personal or academic project, with the code on GitHub: artificial intelligence, data and application development.',
     },
     sections: [],
   },
@@ -354,7 +354,7 @@ export const caseStudy = {
     { fr: 'Des outils de Data Quality accessibles aux utilisateurs métier', en: 'Data quality tooling that business users can actually use' },
   ] as L[],
   note: {
-    fr: 'Projet interne à Fastcube : le code n’est pas public. Toutes les fonctionnalités décrites ici ont été implémentées.',
-    en: "An internal Fastcube project, so the code isn't public. Every feature described here was implemented.",
+    fr: 'Le code n’est pas public. Toutes les fonctionnalités décrites ici ont été implémentées.',
+    en: "The code isn't public. Every feature described here was implemented.",
   } as L,
 }

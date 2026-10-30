@@ -36,11 +36,14 @@ export const skills: Skill[] = [
 
   // Université de Picardie Jules Verne
   { id: 'algo', station: 'amiens', category: 'dev', level: 'formation', label: { fr: 'Algorithmique', en: 'Algorithms' } },
-  { id: 'maths', station: 'amiens', category: 'dev', level: 'formation', label: { fr: 'Mathématiques pour l’informatique', en: 'Mathematics for computer science' } },
+  { id: 'maths', station: 'amiens', category: 'dev', level: 'formation', label: { fr: 'Mathématiques', en: 'Mathematics' } },
+  { id: 'c', station: 'amiens', category: 'dev', level: 'formation', label: { fr: 'Langage C', en: 'C programming' } },
+  { id: 'db-basics', station: 'amiens', category: 'dev', level: 'formation', label: { fr: 'Bases de données', en: 'Databases' } },
+  { id: 'sys-archi', station: 'amiens', category: 'dev', level: 'formation', label: { fr: 'Architecture des systèmes', en: 'Computer systems architecture' } },
 
   // Université d'Évry Paris-Saclay
   { id: 'java', station: 'evry', category: 'dev', level: 'formation', label: { fr: 'Java (programmation orientée objet)', en: 'Java (object-oriented programming)' } },
-  { id: 'c-ocaml', station: 'evry', category: 'dev', level: 'formation', label: { fr: 'C et OCaml', en: 'C and OCaml' } },
+  { id: 'ocaml', station: 'evry', category: 'dev', level: 'formation', label: { fr: 'OCaml', en: 'OCaml' } },
   { id: 'databases', station: 'evry', category: 'dev', level: 'formation', label: { fr: 'MySQL, Oracle, MongoDB', en: 'MySQL, Oracle, MongoDB' } },
   { id: 'staruml', station: 'evry', category: 'tools', level: 'formation', label: { fr: 'StarUML', en: 'StarUML' } },
   { id: 'wireshark', station: 'evry', category: 'tools', level: 'formation', label: { fr: 'Wireshark', en: 'Wireshark' } },
