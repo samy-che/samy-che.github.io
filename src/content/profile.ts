@@ -22,6 +22,22 @@ export const profile = {
   cv: 'cv-samy-cherief.pdf',
 }
 
+/** « En bref » en haut de la version rapide. Les langues et certifications sont ajoutées à partir des listes ci-dessous. */
+export const facts: { label: L; value: L }[] = [
+  {
+    label: { fr: 'Poste', en: 'Role' },
+    value: { fr: 'Consultant SAP chez KPMG France, depuis avril 2026', en: 'SAP Consultant at KPMG France, since April 2026' },
+  },
+  {
+    label: { fr: 'Formation', en: 'Education' },
+    value: { fr: 'Master MIAGE, Université Paris Dauphine-PSL (2026)', en: "MIAGE Master's, Université Paris Dauphine-PSL (2026)" },
+  },
+  {
+    label: { fr: 'Sujets pratiqués', en: 'Hands-on topics' },
+    value: { fr: 'AMOA, data management, SAP LeanIX et Signavio, PMO', en: 'AMOA, data management, SAP LeanIX and Signavio, PMO' },
+  },
+]
+
 export const languages: { name: L; level: L }[] = [
   { name: { fr: 'Français', en: 'French' }, level: { fr: 'Bilingue', en: 'Bilingual' } },
   { name: { fr: 'Arabe', en: 'Arabic' }, level: { fr: 'Langue maternelle', en: 'Native' } },

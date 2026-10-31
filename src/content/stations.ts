@@ -346,6 +346,7 @@ export const caseStudy = {
     { layer: { fr: 'Automatisation', en: 'Automation' }, tech: { fr: 'Planificateur', en: 'Scheduler' }, detail: { fr: 'exécution périodique des règles', en: 'periodic rule execution' } },
     { layer: { fr: 'Supervision', en: 'Monitoring' }, tech: 'Grafana · Loki', detail: { fr: 'alertes en cas d’anomalie', en: 'alerts on anomalies' } },
   ] as { layer: L; tech: string | L; detail?: L }[],
+  tech: ['React', 'Node.js', 'TypeScript', 'PostgreSQL', 'Denodo', 'VQL', 'Denodo AI SDK', 'Grafana', 'Loki'],
   value: [
     { fr: 'Création de règles de qualité simplifiée', en: 'Simpler creation of data quality rules' },
     { fr: 'Moins de dépendance à l’écriture manuelle de requêtes', en: 'Less reliance on hand-written queries' },
