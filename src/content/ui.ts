@@ -70,7 +70,7 @@ export const ui = {
   atAGlance: { fr: 'En bref', en: 'At a glance' },
   factLanguages: { fr: 'Langues', en: 'Languages' },
   statExperiences: { fr: 'expériences', en: 'work experiences' },
-  statProjects: { fr: 'projets sur GitHub', en: 'projects on GitHub' },
+  statProjects: { fr: 'dépôts GitHub', en: 'GitHub repositories' },
   statCertifications: { fr: 'certifications', en: 'certifications' },
   statLanguages: { fr: 'langues', en: 'languages' },
   showDetails: { fr: 'Voir le détail', en: 'Show details' },

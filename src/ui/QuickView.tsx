@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { certificationIssuers, certifications, facts, interests, interestsPro, languages, profile, qualities } from '../content/profile'
-import { projects } from '../content/projects'
 import { categoryLabels, categoryOrder, skills, skillsByStation } from '../content/skills'
 import { caseStudy, stations } from '../content/stations'
 import type { StationId } from '../content/types'
@@ -130,7 +129,7 @@ export function QuickView({ notice }: { notice?: boolean }) {
 
   const stats = [
     { n: experience.length, label: ui.statExperiences },
-    { n: projects.length, label: ui.statProjects },
+    { n: profile.githubRepos, label: ui.statProjects },
     { n: certifications.length, label: ui.statCertifications },
     { n: languages.length, label: ui.statLanguages },
   ]

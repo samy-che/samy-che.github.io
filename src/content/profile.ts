@@ -19,6 +19,8 @@ export const profile = {
   email: 'samycherief21@outlook.fr',
   linkedin: 'https://www.linkedin.com/in/yacine-cherief/',
   github: 'https://github.com/samy-che',
+  /** Nombre de dépôts du compte GitHub (20 publics + 6 privés au 31 octobre 2026). À mettre à jour à la main. */
+  githubRepos: 26,
   cv: 'cv-samy-cherief.pdf',
 }
 
