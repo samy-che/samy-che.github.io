@@ -45,12 +45,28 @@ export const languages: { name: L; level: L }[] = [
   { name: { fr: 'Espagnol', en: 'Spanish' }, level: { fr: 'A2', en: 'A2' } },
 ]
 
-export const certifications: { name: string; issuer: string }[] = [
-  { name: 'Denodo 9 Developer', issuer: 'Denodo' },
-  { name: 'Denodo AI SDK Developer', issuer: 'Denodo' },
-  { name: 'RPA (Automation Anywhere)', issuer: 'Automation Anywhere' },
-  { name: 'Bloomberg Market Concepts (BMC)', issuer: 'Bloomberg' },
+/** Certifications, de la plus récente à la plus ancienne (source : profil LinkedIn de Samy). */
+export const certifications: { name: string; issuer: string; date: L }[] = [
+  { name: 'Process Intelligence Fundamentals', issuer: 'Celonis', date: { fr: 'nov. 2025', en: 'Nov 2025' } },
+  { name: 'Celonis Foundations', issuer: 'Celonis', date: { fr: 'nov. 2025', en: 'Nov 2025' } },
+  { name: 'Denodo Certified Data Architect', issuer: 'Denodo', date: { fr: 'sept. 2025', en: 'Sep 2025' } },
+  { name: 'Oracle Cloud Infrastructure Certified AI Associate', issuer: 'Oracle', date: { fr: 'sept. 2025', en: 'Sep 2025' } },
+  { name: 'Bloomberg Market Concepts (BMC)', issuer: 'Bloomberg', date: { fr: 'sept. 2025', en: 'Sep 2025' } },
+  { name: 'AWS Educate Introduction to Generative AI', issuer: 'Amazon Web Services', date: { fr: 'juin 2025', en: 'Jun 2025' } },
+  { name: 'Denodo AI SDK Certified Developer', issuer: 'Denodo', date: { fr: 'juin 2025', en: 'Jun 2025' } },
+  { name: 'Denodo Platform 9 Certified Developer', issuer: 'Denodo', date: { fr: 'juin 2025', en: 'Jun 2025' } },
+  { name: 'Automation Anywhere Essentials (RPA)', issuer: 'Automation Anywhere', date: { fr: 'mai 2025', en: 'May 2025' } },
 ]
+
+/** Résumé par organisme, ex. « Denodo ×3 · Celonis ×2 · Oracle ». */
+export const certificationIssuers = () => {
+  const counts = new Map<string, number>()
+  certifications.forEach((c) => counts.set(c.issuer, (counts.get(c.issuer) ?? 0) + 1))
+  return [...counts]
+    .sort((a, b) => b[1] - a[1])
+    .map(([issuer, n]) => (n > 1 ? `${issuer} ×${n}` : issuer))
+    .join(' · ')
+}
 
 export const interests: { id: SecretId; label: L; secret: L }[] = [
   {
@@ -102,8 +118,8 @@ export const qualities: { quality: L; proof: L }[] = [
   {
     quality: { fr: "Capacité d'apprentissage", en: 'Fast learning' },
     proof: {
-      fr: 'Denodo, Grafana et la RPA pris en main pendant un stage de cinq mois, et quatre certifications.',
-      en: 'Got to grips with Denodo, Grafana and RPA during a five-month internship, plus four certifications.',
+      fr: 'Denodo, Grafana et la RPA pris en main pendant un stage de cinq mois, et neuf certifications obtenues en 2025.',
+      en: 'Got to grips with Denodo, Grafana and RPA during a five-month internship, plus nine certifications earned in 2025.',
     },
   },
   {

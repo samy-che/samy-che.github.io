@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
-import { certifications, facts, interests, interestsPro, languages, profile, qualities } from '../content/profile'
+import { certificationIssuers, certifications, facts, interests, interestsPro, languages, profile, qualities } from '../content/profile'
 import { projects } from '../content/projects'
 import { categoryLabels, categoryOrder, skills, skillsByStation } from '../content/skills'
 import { caseStudy, stations } from '../content/stations'
 import type { StationId } from '../content/types'
 import { ui } from '../content/ui'
 import { useStore } from '../store'
-import { ContactButtons, LevelLegend, ProjectCards, Sections, SkillChip, useTr } from './common'
+import { CertificationList, ContactButtons, LevelLegend, ProjectCards, Sections, SkillChip, useTr } from './common'
 import { LangSwitch } from './controls'
 import { IconArrow, IconCheck, IconCube, IconDownload } from './icons'
 import './quick.css'
@@ -188,7 +188,9 @@ export function QuickView({ notice }: { notice?: boolean }) {
                 </div>
                 <div>
                   <dt>{tr(ui.certifications)}</dt>
-                  <dd>{certifications.map((c) => c.name).join(' · ')}</dd>
+                  <dd>
+                    {certifications.length} · {certificationIssuers()}
+                  </dd>
                 </div>
               </dl>
             </div>
@@ -340,13 +342,7 @@ export function QuickView({ notice }: { notice?: boolean }) {
                 ))}
               </ul>
               <h3>{tr(ui.certifications)}</h3>
-              <ul className="kv">
-                {certifications.map((c) => (
-                  <li key={c.name}>
-                    <span>{c.name}</span>
-                  </li>
-                ))}
-              </ul>
+              <CertificationList />
               <h3>{tr(ui.hobbies)}</h3>
               <ul className="tags tags--soft">
                 {interests.map((i) => (

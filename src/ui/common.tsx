@@ -1,4 +1,4 @@
-import { certifications, interests, interestsPro, languages, profile, qualities } from '../content/profile'
+import { certificationIssuers, certifications, interests, interestsPro, languages, profile, qualities } from '../content/profile'
 import { projects } from '../content/projects'
 import { levelLabels } from '../content/skills'
 import { caseStudy } from '../content/stations'
@@ -148,6 +148,29 @@ export function ProjectCards() {
   )
 }
 
+/** Certifications repliées dans une liste déroulante : un résumé par organisme, le détail au clic. */
+export function CertificationList() {
+  const tr = useTr()
+  return (
+    <details className="certs">
+      <summary>
+        <span className="certs__toggle">{tr(ui.showCertifications).replace('{n}', String(certifications.length))}</span>
+        <span className="certs__issuers">{certificationIssuers()}</span>
+      </summary>
+      <ul>
+        {certifications.map((c) => (
+          <li key={c.name}>
+            <span className="certs__name">{c.name}</span>
+            <span className="certs__meta">
+              {c.issuer} · {tr(c.date)}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </details>
+  )
+}
+
 export function ContactButtons() {
   const tr = useTr()
   return (
@@ -192,29 +215,21 @@ export function Outro({ heading = 'h3', withContact = true }: { heading?: 'h3' |
           ))}
         </dl>
       </section>
-      <div className="two-cols">
-        <section className="block">
-          <H className="block__title">{tr(ui.languages)}</H>
-          <ul className="kv">
-            {languages.map((l) => (
-              <li key={l.name.fr}>
-                <span>{tr(l.name)}</span>
-                <span>{tr(l.level)}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-        <section className="block">
-          <H className="block__title">{tr(ui.certifications)}</H>
-          <ul className="kv">
-            {certifications.map((c) => (
-              <li key={c.name}>
-                <span>{c.name}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      </div>
+      <section className="block">
+        <H className="block__title">{tr(ui.languages)}</H>
+        <ul className="kv">
+          {languages.map((l) => (
+            <li key={l.name.fr}>
+              <span>{tr(l.name)}</span>
+              <span>{tr(l.level)}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section className="block">
+        <H className="block__title">{tr(ui.certifications)}</H>
+        <CertificationList />
+      </section>
       <section className="block">
         <H className="block__title">{tr(ui.hobbies)}</H>
         <ul className="tags tags--soft">

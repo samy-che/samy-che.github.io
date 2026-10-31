@@ -75,6 +75,7 @@ export const ui = {
   statLanguages: { fr: 'langues', en: 'languages' },
   showDetails: { fr: 'Voir le détail', en: 'Show details' },
   skillsByArea: { fr: 'Compétences par domaine', en: 'Skills by area' },
+  showCertifications: { fr: 'Voir les {n} certifications', en: 'Show all {n} certifications' },
   seeCaseStudy: { fr: 'Voir l’étude de cas', en: 'See the case study' },
   techStack: { fr: 'Technologies', en: 'Tech stack' },
   teaserTitle: { fr: 'Version interactive', en: 'Interactive version' },
